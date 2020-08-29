@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AuthLayout from "./AuthLayout/AuthLayout";
-import PagesList from "../pages/pages/pagesList";
 import config from "../config";
 import PublicLayout from "./PublicLayout/PublicLayout";
+import BlogsList from "../pages/blogs/blogsList";
 
 export default function () {
   return (
@@ -15,7 +15,7 @@ export default function () {
         <Route path={config.routes.app.path}>
           <AuthLayout>
             <Route path={config.routes.pagesList.path}>
-              <PagesList />
+              <BlogsList />
             </Route>
           </AuthLayout>
         </Route>
