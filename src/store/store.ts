@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { blogSlice } from "./blog/blog";
+import { blogSlice } from "./features/blog/blogSlice";
 
 const reducer = combineReducers({
   blog: blogSlice.reducer,

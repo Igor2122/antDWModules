@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { blogInitialState } from "../../defaults";
+import { blogInitialState } from "../../../defaults";
 
 export const blogSlice = createSlice({
   name: "todos",
