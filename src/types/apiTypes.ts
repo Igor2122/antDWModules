@@ -25,3 +25,7 @@ export type BlogResType = {
 export interface BlogRes extends ApiResponse {
   properties: BlogResType[];
 }
+
+export interface ErrorRes {
+  reason: string;
+}

@@ -1,12 +1,18 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { blogSlice } from "./features/blog/blogSlice";
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import rootReducer, { AppState } from "./rootReducer";
 
-const reducer = combineReducers({
-  blog: blogSlice.reducer,
+const store = configureStore({
+  reducer: rootReducer,
 });
 
-export type AppState = ReturnType<typeof reducer>;
+if (process.env.NODE_ENV === "development" && module.hot) {
+  module.hot.accept("./rootReducer", () => {
+    const newRootReducer = require("./rootReducer").default;
+    store.replaceReducer(newRootReducer);
+  });
+}
 
-export default configureStore({
-  reducer,
-});
+export type AppDispatch = typeof store.dispatch;
+export type AppThunk = ThunkAction<void, AppState, unknown, Action<string>>;
+
+export default store;
